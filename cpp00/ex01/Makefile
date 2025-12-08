@@ -37,3 +37,5 @@ fclean :
 re :
 	@$(MAKE) --no-print-directory fclean;
 	@$(MAKE) --no-print-directory all;
+
+.PHONY: all clean fclean re
