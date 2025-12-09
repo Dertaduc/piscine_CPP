@@ -21,21 +21,21 @@ CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	$(CPP) $(CPP_FLAGS) $(SRC) -o $(NAME)
+	$(CPP) $(CPP_FLAGS) $(OBJ) -o $(NAME)
 
 build/%.o: %.cpp
 	@mkdir -p build/
 	@$(CPP) $(CPP_FLAGS) -c $< -o $@
 
 clean :
-	rm -rf build
+	@rm -rf build
 
 fclean :
-	rm -rf build
-	rm -rf $(NAME)
+	@rm -rf build
+	@rm -rf $(NAME)
 
 re :
-	$(MAKE) fclean;
-	$(MAKE) all;
+	@$(MAKE) --no-print-directory fclean;
+	@$(MAKE) --no-print-directory all;
 
 .PHONY: all clean fclean re
