@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "contact.hpp"
-#include "phonebook.hpp"
+#include "Contact.hpp"
+#include "Phonebook.hpp"
 #include <iomanip>
 
 void prompt_instruction(void)
@@ -15,7 +15,7 @@ void prompt_instruction(void)
 
 int main(void)
 {
-	phonebook my_phonebook;
+	Phonebook my_Phonebook;
 	std::string input;
 
 	prompt_instruction();
@@ -28,9 +28,9 @@ int main(void)
 			return (0);
 		}
 		if (input.compare("ADD") == 0)
-			my_phonebook.add_contact();
+			my_Phonebook.add_contact();
 		else if (input.compare("SEARCH") == 0)
-			my_phonebook.print_search();
+			my_Phonebook.print_search();
 		else if (input.compare("EXIT") == 0)
 			return (0);
 		else

@@ -6,17 +6,17 @@
 /*   By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:10:39 by candre--          #+#    #+#             */
-/*   Updated: 2025/12/06 13:23:52 by candre--         ###   ########.fr       */
+/*   Updated: 2025/12/09 15:40:04 by candre--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 #include <iostream>
 #include <iomanip>
 #include <stdlib.h>
 
 
-int	phonebook::get_nb_contact(void)const
+int	Phonebook::get_nb_contact(void)const
 {
 	return (this->_nb_contact);
 }
@@ -28,7 +28,7 @@ const std::string truncate(std::string field)
 	return (field);
 }
 
-void phonebook::print_search(void)
+void Phonebook::print_search(void)
 {
 	int nb_contact;
 	int	i;
@@ -73,7 +73,7 @@ void phonebook::print_search(void)
 	_contact[select_contact - 1].display_contact_information();
 }
 
-void phonebook::add_contact(void)
+void Phonebook::add_contact(void)
 {
 	_it_contact = (_it_contact + 1) % 8;
 	if (_nb_contact < 8)
@@ -83,10 +83,10 @@ void phonebook::add_contact(void)
 	std::cout << std::endl << "Contact " << _it_contact + 1 << " succesfully added" << std::endl;
 }
 
-phonebook::phonebook(void)
+Phonebook::Phonebook(void)
 {
 	_it_contact = 7;
 	_nb_contact = 0;
 }
 
-phonebook::~phonebook(void){}
+Phonebook::~Phonebook(void){}

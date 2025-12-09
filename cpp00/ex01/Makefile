@@ -6,13 +6,13 @@
 #    By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 15:36:33 by candre--          #+#    #+#              #
-#    Updated: 2025/12/06 15:39:51 by candre--         ###   ########.fr        #
+#    Updated: 2025/12/09 15:42:28 by candre--         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRC = main.cpp contact.cpp phonebook.cpp
+SRC = main.cpp Contact.cpp Phonebook.cpp
 OBJ = $(addprefix build/, $(SRC:.cpp=.o))
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98

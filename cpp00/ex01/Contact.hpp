@@ -6,7 +6,7 @@
 /*   By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 18:41:13 by candre--          #+#    #+#             */
-/*   Updated: 2025/12/05 17:26:17 by candre--         ###   ########.fr       */
+/*   Updated: 2025/12/09 15:42:06 by candre--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 #include <string>
 
-class contact
+class Contact
 {
 	public:
-		contact(void);
-		~contact(void);
+		Contact(void);
+		~Contact(void);
 		void set_contact(void);
 		void display_contact_information(void) const;
 		const std::string get_firstname(void);

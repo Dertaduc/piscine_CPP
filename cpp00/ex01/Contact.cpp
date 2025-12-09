@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 18:46:05 by candre--          #+#    #+#             */
-/*   Updated: 2025/12/05 17:26:01 by candre--         ###   ########.fr       */
+/*   Updated: 2025/12/09 15:41:43 by candre--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "Contact.hpp"
 #include <iostream>
 #include <stdlib.h>
 
@@ -33,7 +33,7 @@ static std::string get_input(const char *input_field)
 	return (input);
 }
 
-void contact::display_contact_information(void) const
+void Contact::display_contact_information(void) const
 {
 	std::cout << "first name is : " << _first_name << std::endl;
 	std::cout << "last name is : " << _last_name << std::endl;
@@ -43,21 +43,21 @@ void contact::display_contact_information(void) const
 	return ;
 }
 
-const std::string contact::get_firstname(void)
+const std::string Contact::get_firstname(void)
 {
 	return (_first_name);
 }
-const std::string contact::get_lastname(void)
+const std::string Contact::get_lastname(void)
 {
 	return (_last_name);
 }
 
-const std::string contact::get_nickname(void)
+const std::string Contact::get_nickname(void)
 {
 	return (_nick_name);
 }
 
-void contact::set_contact(void)
+void Contact::set_contact(void)
 {
 	_first_name = get_input("first name");
 	_last_name = get_input("last name");
@@ -66,5 +66,5 @@ void contact::set_contact(void)
 	_darkest_secret = get_input("darkest secret");
 	
 }
-contact::contact(void) {}
-contact::~contact(void) {}
+Contact::Contact(void) {}
+Contact::~Contact(void) {}
