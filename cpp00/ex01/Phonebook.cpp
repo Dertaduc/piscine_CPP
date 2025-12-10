@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:10:39 by candre--          #+#    #+#             */
-/*   Updated: 2025/12/09 15:40:04 by candre--         ###   ########.fr       */
+/*   Updated: 2025/12/10 15:28:35 by candre--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ const std::string truncate(std::string field)
 	return (field);
 }
 
-void Phonebook::print_search(void)
+bool Phonebook::print_search(void)
 {
 	int nb_contact;
 	int	i;
@@ -39,7 +39,7 @@ void Phonebook::print_search(void)
 	if (nb_contact < 1)
 	{
 		std::cout << "No contact saved, you must ADD a contact before SEARCH" << std::endl;
-		return ;
+		return (true);
 	}
 	std::cout << std::setw(46) << std::setfill('=') << "\n" << std::setfill(' ');
 	std::cout << "|" << std::setw(10) << "index" << "|";
@@ -62,25 +62,28 @@ void Phonebook::print_search(void)
 	if (!std::getline(std::cin, input))
 	{
 		std::cout << std::endl;
-		exit(EXIT_SUCCESS);
+		return (false);
 	}
 	select_contact = std::atoi(input.c_str());
 	if (input.length() > 2 || select_contact <= 0 || select_contact > nb_contact)
 	{
 		std::cout << "Invalid index, please try a new search\n";
-		return ;
+		return (true);
 	}
 	_contact[select_contact - 1].display_contact_information();
+	return (true);
 }
 
-void Phonebook::add_contact(void)
+bool Phonebook::add_contact(void)
 {
 	_it_contact = (_it_contact + 1) % 8;
 	if (_nb_contact < 8)
 		++_nb_contact;
 	std::cout << std::endl <<  "Adding contact number : " << _it_contact + 1 << std::endl;
-	_contact[_it_contact].set_contact();
+	if (_contact[_it_contact].set_contact() == false)
+		return (false);
 	std::cout << std::endl << "Contact " << _it_contact + 1 << " succesfully added" << std::endl;
+	return (true);
 }
 
 Phonebook::Phonebook(void)

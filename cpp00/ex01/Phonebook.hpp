@@ -19,8 +19,8 @@ class Phonebook
 	public:
 		Phonebook(void);
 		~Phonebook(void);
-		void	add_contact(void);
-		void	print_search(void);
+		bool	add_contact(void);
+		bool	print_search(void);
 		int		get_nb_contact(void) const;
 	private:
 		Contact _contact[8];

@@ -14,9 +14,9 @@
 #include <iostream>
 #include <stdlib.h>
 
-static std::string get_input(const char *input_field)
+static bool get_input(const char *input_field, std::string& input)
 {
-	std::string input;
+	// std::string input;
 
 	while (true)
 	{
@@ -24,13 +24,15 @@ static std::string get_input(const char *input_field)
 		if (!getline(std::cin, input))
 		{
 			std::cout << std::endl;
-			exit(EXIT_SUCCESS);
+			// exit(EXIT_SUCCESS);
+			return (false);
 		}
 		if (!input.empty())
 			break ;
 		std::cout << "The field : " << input_field << " cannot be empty\n";
 	}
-	return (input);
+	return (true);
+	// return (input);
 }
 
 void Contact::display_contact_information(void) const
@@ -57,14 +59,19 @@ const std::string Contact::get_nickname(void)
 	return (_nick_name);
 }
 
-void Contact::set_contact(void)
+bool Contact::set_contact(void)
 {
-	_first_name = get_input("first name");
-	_last_name = get_input("last name");
-	_nick_name = get_input("nickname");
-	_phone_number = get_input("phone number");
-	_darkest_secret = get_input("darkest secret");
-	
+	if (get_input("first name", _first_name) == false)
+		return (false);
+	if (get_input("last name", _last_name) == false)
+		return (false);
+	if (get_input("nickname", _nick_name) == false)
+		return (false);
+	if (get_input("phone number", _phone_number) == false)
+		return (false);
+	if (get_input("darkest secret", _darkest_secret) == false)
+		return (false);
+	return (true);
 }
 Contact::Contact(void) {}
 Contact::~Contact(void) {}

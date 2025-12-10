@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -20,7 +20,7 @@ class Contact
 	public:
 		Contact(void);
 		~Contact(void);
-		void set_contact(void);
+		bool set_contact(void);
 		void display_contact_information(void) const;
 		const std::string get_firstname(void);
 		const std::string get_lastname(void);
