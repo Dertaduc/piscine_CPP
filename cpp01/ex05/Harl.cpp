@@ -16,7 +16,7 @@
 void Harl::complain(std::string level)
 {
 	int 		i;
-	std::string (compare_tab[4]) = {"debug", "info", "warning", "error"};
+	std::string (compare_tab[4]) = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void		(Harl::*functionREF)(void);
 	void		(Harl::*method[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
