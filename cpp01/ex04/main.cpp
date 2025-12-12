@@ -40,10 +40,10 @@ void	replace_occur(std::string& file_content, const std::string s1, const std::s
 	found = file_content.find(s1);
 	while (found != std::string::npos)
 	{
-		before = file_content.substr(0, found);
-		after = file_content.substr(found + s1.length());
-		file_content = before + s2 + after;
-		found = file_content.find(s1);	
+		file_content.erase(found, s1.length());
+		file_content.insert(found, s2);
+		found = found + s2.length();
+		found = file_content.find(s1, found);
 	}
 }
 
