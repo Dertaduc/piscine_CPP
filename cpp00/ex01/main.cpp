@@ -27,10 +27,16 @@ int main(void)
 			std::cout << std::endl;
 			return (0);
 		}
-		if (input.compare("ADD") == 0 && my_Phonebook.add_contact() == false)
-			return (0);
-		else if (input.compare("SEARCH") == 0 && my_Phonebook.print_search() == false)
-			return (0);
+		if (input.compare("ADD") == 0)
+		{
+			if (my_Phonebook.add_contact() == false)
+				return (0);
+		}
+		else if (input.compare("SEARCH") == 0)
+		{
+			if (my_Phonebook.print_search() == false)
+				return (0);
+		}
 		else if (input.compare("EXIT") == 0)
 			return (0);
 		else
