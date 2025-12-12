@@ -15,10 +15,10 @@
 
 void Harl::complain(std::string level)
 {
-	int i;
+	int 		i;
 	std::string (compare_tab[4]) = {"debug", "info", "warning", "error"};
-	void	(Harl::*functionREF)(void);
-	void	(Harl::*method[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	void		(Harl::*functionREF)(void);
+	void		(Harl::*method[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	functionREF = NULL;
 	for (i = 0; i < 4; i++)
@@ -45,7 +45,7 @@ void Harl::debug(void)
 
 void Harl::info(void)
 {
-	std::cout << "I cannot believe adding extra bacon costs more money. You didn\'t put enough bacon in my burger! If you did, I wouldn\'t be asking for more!" << std::endl;
+	std::cout << "I cannot believe adding extra bacon costs more money. You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!" << std::endl;
 }
 
 void Harl::warning(void)
