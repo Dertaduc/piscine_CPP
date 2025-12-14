@@ -21,8 +21,10 @@ int main(void)
 	Zombie *zomb_ptr;
 	
 	zomb_ptr = newZombie("heap_zomb");
+	if (!zomb_ptr)
+		return (1);
 	randomChump("stack_zomb");
-	
+	zomb_ptr->announce();
 	delete (zomb_ptr);
 	return (0);
 }

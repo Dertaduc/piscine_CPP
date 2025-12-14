@@ -15,4 +15,5 @@
 void randomChump(std::string name)
 {
 	Zombie instance(name);
+	instance.announce();
 }
