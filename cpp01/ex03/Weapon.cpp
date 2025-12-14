@@ -14,13 +14,13 @@
 
 const std::string& Weapon::getType(void) const
 {
-	return (_weapon);
+	return (_type);
 }
 
 void Weapon::setType(std::string weapon)
 { 
-	_weapon = weapon;
+	_type = weapon;
 }
 
-Weapon::Weapon(std::string weapon) : _weapon(weapon){}
+Weapon::Weapon(std::string weapon) : _type(weapon){}
 Weapon::~Weapon(void){}
