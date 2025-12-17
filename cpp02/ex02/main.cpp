@@ -67,14 +67,18 @@ int main(void)
 	std::cout << "a + 10.21f : " << a + 10.21f << std::endl;
 	std::cout << "a - 5 : " << a - 5 << std::endl;
 	std::cout << "a * 2 : " << a * 2 << std::endl;
+	std::cout << "a * 0 : " << a * 0 << std::endl;
+	std::cout << "a * -1 : " << a * -1 << std::endl;
 	std::cout << "a / 3 : " << a / 3 << std::endl;
+	std::cout << "a / 0 : " << a / 0 << std::endl;
+	std::cout << "a / -3 : " << a / -3 << std::endl;
 	
 	std::cout << "\n\nINCREMENT OPERATOR TEST\n";
 	std::cout << "Initial value for a : " << a.toFloat() << std::endl;
-	std::cout << "Previous a : " << a << " and ++a : " << ++a << std::endl;
-	std::cout << "Previous a : " << a << " and a++ : " << a++ << " final a : " << a << std::endl;
-	std::cout << "Previous a : " << a << " and --a : " << --a << std::endl;
-	std::cout << "Previous a : " << a << " and a-- : " << a-- << " final a : " << a << std::endl;
+	std::cout << "Previous a : " << a << " (_raw_value=" << a.getRawBits() << ") and ++a : " << ++a << " (_raw_value=" << a.getRawBits() << ")" << std::endl;
+	std::cout << "Previous a : " << a << " (_raw_value=" << a.getRawBits() << ") and a++ : " << a++ << " final a : " << a << " (_raw_value=" << a.getRawBits() << ")" << std::endl;
+	std::cout << "Previous a : " << a << " (_raw_value=" << a.getRawBits() << ") and --a : " << --a << " (_raw_value=" << a.getRawBits() << ")" << std::endl;
+	std::cout << "Previous a : " << a << " (_raw_value=" << a.getRawBits() << ") and a-- : " << a-- << " final a : " << a << " (_raw_value=" << a.getRawBits() << ")" << std::endl;
 
 	std::cout << "\n\nMEMBER FUNCTION MIN MAX TEST\n";
 	std::cout << "Min between a=" << a << " and b=" << b << " is : " << Fixed::min(a, b) << std::endl;
