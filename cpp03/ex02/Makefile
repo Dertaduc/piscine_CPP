@@ -6,13 +6,13 @@
 #    By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 15:36:33 by candre--          #+#    #+#              #
-#    Updated: 2025/12/18 19:20:56 by candre--         ###   ########.fr        #
+#    Updated: 2025/12/18 20:54:25 by candre--         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = clapclap
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ = $(addprefix build/, $(SRC:.cpp=.o))
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -Wconversion -std=c++98
