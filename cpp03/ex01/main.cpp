@@ -6,19 +6,19 @@
 /*   By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 10:44:36 by candre--          #+#    #+#             */
-/*   Updated: 2025/12/18 17:07:28 by candre--         ###   ########.fr       */
+/*   Updated: 2025/12/18 19:44:28 by candre--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
-	ClapTrap Bourdieu("Pierre Bourdieu");
-	ClapTrap Maffesoli("Michel Maffesoli");
-	ClapTrap Durkheim("Emile Durkheim");
+	ScavTrap Bourdieu("Pierre Bourdieu");
+	ScavTrap Maffesoli("Michel Maffesoli");
+	ScavTrap Durkheim("Emile Durkheim");
 
-	ClapTrap Pouet ("pouet");
+	ScavTrap Pouet ("pouet");
 
 	Pouet = Durkheim;
 
@@ -55,5 +55,6 @@ int main(void)
 	Maffesoli.beRepaired(42);
 	Maffesoli.takeDamage(1);
 
+	Maffesoli.guardGate();
 	return (0);
 }

@@ -6,18 +6,24 @@
 /*   By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 10:38:51 by candre--          #+#    #+#             */
-/*   Updated: 2025/12/18 16:51:49 by candre--         ###   ########.fr       */
+/*   Updated: 2025/12/18 19:24:04 by candre--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _name("default_name"), _hit_point(10),  _energy_point(10), _attack_damage(0){std::cout << "Default constructor called\n";}
-ClapTrap::ClapTrap(std::string name) : _name(name), _hit_point(10), _energy_point(10), _attack_damage(0){std::cout << "STD STRING Constructor called : " << _name << std::endl;}
+ClapTrap::ClapTrap(void) : _name("default_name"), _hit_point(10),  _energy_point(10), _attack_damage(0)
+{
+	std::cout << "ClapTrap : default constructor called\n";
+}
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit_point(10), _energy_point(10), _attack_damage(0)
+{
+	std::cout << "ClapTrap with name constructor called : " << _name << std::endl;
+}
 
 ClapTrap::ClapTrap(const ClapTrap &to_copy)
 {
-	std::cout << "Copy constructor called\n"; 
+	std::cout << "ClapTrap copy constructor called\n"; 
 	_name = to_copy._name;
 	_hit_point = to_copy._hit_point;
 	_energy_point = to_copy._energy_point;
@@ -26,7 +32,7 @@ ClapTrap::ClapTrap(const ClapTrap &to_copy)
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &assign)
 {
-	std::cout << "Operator = called\n"; 
+	std::cout << "ClapTrap operator = called\n"; 
 	this->_name = assign._name;
 	this->_hit_point = assign._hit_point;
 	this->_energy_point = assign._energy_point;
@@ -92,4 +98,4 @@ void ClapTrap::takeDamage(unsigned int amount)
 	}
 }
 
-ClapTrap::~ClapTrap(void){std::cout << "Destructor called : " << _name << std::endl;}
+ClapTrap::~ClapTrap(void){std::cout << "ClapTrap destructor called : " << _name << std::endl;}
