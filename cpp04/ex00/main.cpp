@@ -49,4 +49,5 @@ int	main(void)
 	delete (j);
 	delete (i);
 	delete (w);
+	delete (wc);
 }
