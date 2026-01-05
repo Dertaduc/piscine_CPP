@@ -15,12 +15,18 @@
 Cat::Cat(void) : Animal()
 {
 	type = "Cat";
+	std::cout << "Constructor : Cat (default constructor)" << std::endl;
 }
 
-Cat::Cat(const Cat &to_copy) : Animal(to_copy){}
+Cat::Cat(const Cat &to_copy) : Animal(to_copy)
+{
+	std::cout << "Constructor : Cat (copy constructor)" << std::endl;
+}
 
-Cat::~Cat(void) {}
-
+Cat::~Cat(void)
+{
+	std::cout << "Destructor : Cat" << std::endl;
+}
 Cat &Cat::operator=(const Cat &assign)
 {
 	this->type = assign.type;

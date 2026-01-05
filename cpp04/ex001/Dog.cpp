@@ -15,11 +15,18 @@
 Dog::Dog(void) : Animal()
 {
 	type = "Dog";
+	std::cout << "Constructor : Dog (default constructor)" << std::endl;
 }
 
-Dog::Dog(const Dog &to_copy) : Animal(to_copy){}
+Dog::Dog(const Dog &to_copy) : Animal(to_copy)
+{
+	std::cout << "Constructor : Dog (copy constructor)" << std::endl;
+}
 
-Dog::~Dog(void) {}
+Dog::~Dog(void)
+{
+	std::cout << "Destructor : Dog" << std::endl;
+}
 
 Dog &Dog::operator=(const Dog &assign)
 {

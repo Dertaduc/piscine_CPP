@@ -12,14 +12,21 @@
 
 #include "Animal.hpp"
 
-Animal::Animal(void){}
+Animal::Animal(void)
+{
+	std::cout << "Constructor : Animal (default constructor)" << std::endl;
+}
 
 Animal::Animal(const Animal &to_copy)
 {
 	type = to_copy.type;
+	std::cout << "Constructor : Animal (copy constructor)" << std::endl;
 }
 
-Animal::~Animal(void){}
+Animal::~Animal(void)
+{
+	std::cout << "Destructor : Animal" << std::endl;
+}
 
 Animal &Animal::operator=(const Animal &assign)
 {
