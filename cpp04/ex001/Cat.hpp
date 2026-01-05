@@ -14,6 +14,7 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 # include <iostream>
 
 class Cat : public Animal
@@ -22,10 +23,11 @@ class Cat : public Animal
 		Cat(void);
 		~Cat(void);
 		virtual void makeSound(void) const;
+		void		getAllIdeas(void) const;
 	private :
 		Cat(const Cat &to_copy);
 		Cat &operator=(const Cat &assign);
-		
+		Brain *brain;
 };
 
 #endif

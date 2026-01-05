@@ -15,6 +15,7 @@
 Cat::Cat(void) : Animal()
 {
 	type = "Cat";
+	brain = new Brain();
 	std::cout << "Constructor : Cat (default constructor)" << std::endl;
 }
 
@@ -25,12 +26,19 @@ Cat::Cat(const Cat &to_copy) : Animal(to_copy)
 
 Cat::~Cat(void)
 {
+	delete brain;
 	std::cout << "Destructor : Cat" << std::endl;
 }
 Cat &Cat::operator=(const Cat &assign)
 {
 	this->type = assign.type;
 	return (*this);
+}
+
+void Cat::getAllIdeas(void) const
+{
+	for (int i = 0; i < 100; i++)
+		std::cout << brain->getIdea(i) << std::endl;
 }
 
 void Cat::makeSound(void) const

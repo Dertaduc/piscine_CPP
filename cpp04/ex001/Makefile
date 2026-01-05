@@ -12,12 +12,13 @@
 
 NAME = worldfire
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 HEADERS = Animal.hpp Cat.hpp Dog.hpp
 OBJ = $(addprefix build/, $(SRC:.cpp=.o))
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 
+# -MMD et -MP
 
 all : $(NAME)
 
