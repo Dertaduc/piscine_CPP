@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
-
-WrongCat::WrongCat(void) : Animal()
+WrongCat::WrongCat(void) : WrongAnimal()
 {
 	type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat &to_copy) : Animal(to_copy){}
+WrongCat::WrongCat(const WrongCat &to_copy) : WrongAnimal(to_copy){}
 
 WrongCat::~WrongCat(void) {}
 
@@ -29,5 +28,5 @@ WrongCat &WrongCat::operator=(const WrongCat &assign)
 
 void WrongCat::makeSound(void) const
 {
-	std::cout << "MIAOU" << std::endl;
+	std::cout << "MIAOU";
 }

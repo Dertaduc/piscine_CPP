@@ -14,6 +14,7 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 #include <iostream>
 
 int	main(void)
@@ -22,18 +23,27 @@ int	main(void)
 	const Animal *j = new Dog();
 	const Animal *i = new Cat(); 
 	const WrongAnimal *w = new WrongAnimal();
+	const WrongAnimal *wc = new WrongCat();
 
-	std::cout << j->getType() << " ";
+	std::cout << "Type : " << j->getType() << " (associate sound : ";
 	j->makeSound();
-	std::cout  << std::endl;
-	std::cout << i->getType() << " ";
+	std::cout  << ")" <<std::endl;
+
+	std::cout << "Type : " << i->getType() << " (associate sound : ";
 	i->makeSound();
-	std::cout  << std::endl;
+	std::cout  << ")" <<std::endl;
+
+	std::cout << "Type : " << meta->getType() << " (associate sound : ";
 	meta->makeSound();
-	std::cout << std::endl;
-	std::cout << w->getType() << " ";
+	std::cout  << ")" <<std::endl;
+
+	std::cout << "Type : " << w->getType() << " (associate sound : ";
 	w->makeSound();
-	std::cout  << std::endl;
+	std::cout  << ")" <<std::endl;
+
+	std::cout << "Type : " << wc->getType() << " (associate sound : ";
+	wc->makeSound();
+	std::cout  << ")" <<std::endl;
 
 	delete (meta);
 	delete (j);
