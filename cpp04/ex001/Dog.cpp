@@ -15,6 +15,7 @@
 Dog::Dog(void) : Animal()
 {
 	type = "Dog";
+	brain = new Brain();
 	std::cout << "Constructor : Dog (default constructor)" << std::endl;
 }
 
@@ -25,6 +26,7 @@ Dog::Dog(const Dog &to_copy) : Animal(to_copy)
 
 Dog::~Dog(void)
 {
+	delete brain;
 	std::cout << "Destructor : Dog" << std::endl;
 }
 
@@ -37,4 +39,10 @@ Dog &Dog::operator=(const Dog &assign)
 void Dog::makeSound(void) const
 {
 	std::cout << "Waf Waf";
+}
+
+void Dog::getAllIdeas(void) const
+{
+	for (int i = 0; i < 100; i++)
+		std::cout << brain->getIdea(i) << std::endl;
 }

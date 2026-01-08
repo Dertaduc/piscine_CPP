@@ -25,6 +25,7 @@ class Animal
 		Animal &operator=(const Animal &assign);
 		virtual void makeSound(void) const;
 		std::string getType(void) const;
+		virtual void getAllIdeas(void) const;
 	protected :
 		std::string type;
 };

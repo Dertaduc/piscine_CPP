@@ -15,6 +15,7 @@
 
 # include "Animal.hpp"
 # include <iostream>
+# include "Brain.hpp"
 
 class Dog : public Animal
 {
@@ -22,10 +23,11 @@ class Dog : public Animal
 		Dog(void);
 		~Dog(void);
 		virtual void makeSound(void) const;
+		void		getAllIdeas(void) const;
 	private :
 		Dog(const Dog &to_copy);
 		Dog &operator=(const Dog &assign);
-		
+		Brain *brain;
 };
 
 #endif
