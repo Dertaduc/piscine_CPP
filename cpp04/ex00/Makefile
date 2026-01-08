@@ -13,26 +13,29 @@
 NAME = polymor
 
 SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
-HEADERS = Animal.hpp Cat.hpp Dog.hpp
-OBJ = $(addprefix build/, $(SRC:.cpp=.o))
-CPP = c++
-CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
+OBJ_DIR = build
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+DEP = $(OBJ:.o=.d)
 
+CPP = c++
+CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
 
 all : $(NAME)
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPP_FLAGS) $(OBJ) -o $(NAME)
 
-build/%.o: %.cpp $(HEADERS)
-	@mkdir -p build/
-	@$(CPP) $(CPP_FLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
+	$(CPP) $(CPP_FLAGS) -c $< -o $@
+
+-include $(DEP)
 
 clean :
-	@rm -rf build
+	@rm -rf $(OBJ_DIR)
 
 fclean :
-	@rm -rf build
+	@rm -rf $(OBJ_DIR)
 	@rm -rf $(NAME)
 
 re :

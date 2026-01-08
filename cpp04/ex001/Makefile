@@ -20,8 +20,6 @@ DEP = $(OBJ:.o=.d)
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
 
-# -MMD et -MP
-
 all : $(NAME)
 
 $(NAME): $(OBJ)
