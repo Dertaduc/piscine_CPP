@@ -75,6 +75,7 @@ int	main(void)
 	Animal *tab[NB_ANIMALS] = {NULL};
 	const Animal *j = new Dog();
 	const Animal *i = new Cat();
+	srand(time(NULL));
 
 	if (init_tab(tab) == false)
 		return (1);
@@ -84,4 +85,37 @@ int	main(void)
 	
 	delete j;
 	delete i;
+
+
+	std::cout << "\n\n\n------------TEST of copy class : Cat----------\n";
+	const Cat c;
+	Cat d;
+	// Cat d(c);
+
+	// d = c;
+	for (int i= 0; i < 100; i++)
+	{
+		std::cout << i;
+		if (c.getIndexed_idea(i) == d.getIndexed_idea(i))
+			std::cout<< " True : ";
+		else
+			std::cout << " False : ";
+		std::cout << c.getIndexed_idea(i) << " ||| " << d.getIndexed_idea(i) << std::endl;
+	}
+
+	std::cout << "\n\n\n------------TEST of copy class : Dog----------\n";
+	const Dog e;
+	Dog f;
+	// Dog f(e);
+
+	f = e;
+	for (int i= 0; i < 100; i++)
+	{
+		std::cout << i;
+		if (e.getIndexed_idea(i) == f.getIndexed_idea(i))
+			std::cout<< " True : ";
+		else
+			std::cout << " False : ";
+		std::cout << e.getIndexed_idea(i) << " ||| " << f.getIndexed_idea(i) << std::endl;
+	}
 }

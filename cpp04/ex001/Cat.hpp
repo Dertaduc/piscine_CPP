@@ -21,12 +21,13 @@ class Cat : public Animal
 {
 	public :
 		Cat(void);
+		Cat(const Cat &to_copy);
 		~Cat(void);
+		Cat &operator=(const Cat &assign);
 		virtual void makeSound(void) const;
 		void		getAllIdeas(void) const;
+		std::string getIndexed_idea(int i) const;
 	private :
-		Cat(const Cat &to_copy);
-		Cat &operator=(const Cat &assign);
 		Brain *brain;
 };
 

@@ -12,15 +12,15 @@
 
 #include "Cat.hpp"
 
-Cat::Cat(void) : Animal()
+Cat::Cat(void) : Animal(), brain (new Brain())
 {
 	type = "Cat";
-	brain = new Brain();
 	std::cout << "Constructor : Cat (default constructor)" << std::endl;
 }
 
 Cat::Cat(const Cat &to_copy) : Animal(to_copy)
 {
+	brain = new Brain(*to_copy.brain);	
 	std::cout << "Constructor : Cat (copy constructor)" << std::endl;
 }
 
@@ -31,7 +31,12 @@ Cat::~Cat(void)
 }
 Cat &Cat::operator=(const Cat &assign)
 {
-	this->type = assign.type;
+	if (this != &assign)
+	{
+		Animal::operator=(assign);
+		delete brain;
+		brain = new Brain(*assign.brain);
+	}
 	return (*this);
 }
 
@@ -39,6 +44,11 @@ void Cat::getAllIdeas(void) const
 {
 	for (int i = 0; i < 100; i++)
 		std::cout << brain->getIdea(i) << std::endl;
+}
+
+std::string Cat::getIndexed_idea(int i) const
+{
+	return (brain->getIdea(i));
 }
 
 void Cat::makeSound(void) const

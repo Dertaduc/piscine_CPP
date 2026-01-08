@@ -16,11 +16,9 @@ Brain::Brain(void)
 {
 	int random;
 
-	srand(time(NULL));
-
 	for (int i = 0; i < 100; i++)
 	{
-		random = rand() % 10;
+		random = rand() % 11;
 		switch (random){
 			case 0 :
 				ideas[i] = "I want to eat";

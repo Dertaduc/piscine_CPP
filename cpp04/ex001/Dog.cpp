@@ -12,15 +12,15 @@
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal()
+Dog::Dog(void) : Animal(), brain (new Brain())
 {
 	type = "Dog";
-	brain = new Brain();
 	std::cout << "Constructor : Dog (default constructor)" << std::endl;
 }
 
 Dog::Dog(const Dog &to_copy) : Animal(to_copy)
 {
+	brain = new Brain(*to_copy.brain);
 	std::cout << "Constructor : Dog (copy constructor)" << std::endl;
 }
 
@@ -32,17 +32,27 @@ Dog::~Dog(void)
 
 Dog &Dog::operator=(const Dog &assign)
 {
-	this->type = assign.type;
+	if (this != &assign)
+	{
+		Animal::operator=(assign);
+		delete brain;
+		brain = new Brain(*assign.brain);
+	}
 	return (*this);
-}
-
-void Dog::makeSound(void) const
-{
-	std::cout << "Waf Waf";
 }
 
 void Dog::getAllIdeas(void) const
 {
 	for (int i = 0; i < 100; i++)
-		std::cout << brain->getIdea(i) << std::endl;
+	std::cout << brain->getIdea(i) << std::endl;
+}
+
+std::string Dog::getIndexed_idea(int i) const
+{
+	return (brain->getIdea(i));
+}
+
+void Dog::makeSound(void) const
+{
+	std::cout << "Waf Waf";
 }
