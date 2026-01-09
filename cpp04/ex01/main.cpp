@@ -37,10 +37,10 @@ bool init_tab(Animal **tab)
 
 	try
 	{
-	for (; i < (NB_ANIMALS / 2); i++)
-		tab[i] = new Dog;
-	for (; i < (NB_ANIMALS); i++)
-		tab[i] = new Cat;
+		for (; i < (NB_ANIMALS / 2); i++)
+			tab[i] = new Dog;
+		for (; i < (NB_ANIMALS); i++)
+			tab[i] = new Cat;
 	}
 	catch (std::bad_alloc &e)
 	{
