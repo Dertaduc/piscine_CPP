@@ -11,14 +11,22 @@
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
+
 WrongCat::WrongCat(void) : WrongAnimal()
 {
 	type = "WrongCat";
+	std::cout << "Constructor : WrongCat (default constructor)" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &to_copy) : WrongAnimal(to_copy){}
+WrongCat::WrongCat(const WrongCat &to_copy) : WrongAnimal(to_copy)
+{
+	std::cout << "Constructor : WrongCat (copy constructor)" << std::endl;
+}
 
-WrongCat::~WrongCat(void) {}
+WrongCat::~WrongCat(void)
+{
+	std::cout << "Destructor : WrongCat" << std::endl;
+}
 
 WrongCat &WrongCat::operator=(const WrongCat &assign)
 {
