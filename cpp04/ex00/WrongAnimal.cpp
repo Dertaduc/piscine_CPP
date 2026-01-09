@@ -12,14 +12,21 @@
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(void){}
+WrongAnimal::WrongAnimal(void)
+{
+	std::cout << "Constructor : WrongAnimal (default constructor)" << std::endl;
+}
 
 WrongAnimal::WrongAnimal(const WrongAnimal &to_copy)
 {
 	type = to_copy.type;
+	std::cout << "Constructor : WrongAnimal (copy constructor)" << std::endl;
 }
 
-WrongAnimal::~WrongAnimal(void){}
+WrongAnimal::~WrongAnimal(void)
+{
+	std::cout << "Destructor : WrongAnimal" << std::endl;
+}
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &assign)
 {

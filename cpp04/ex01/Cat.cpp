@@ -29,6 +29,7 @@ Cat::~Cat(void)
 	delete brain;
 	std::cout << "Destructor : Cat" << std::endl;
 }
+
 Cat &Cat::operator=(const Cat &assign)
 {
 	if (this != &assign)
