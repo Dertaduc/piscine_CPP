@@ -21,7 +21,7 @@ class WrongAnimal
 	public :
 		WrongAnimal(void);
 		WrongAnimal(const WrongAnimal &to_copy);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 		WrongAnimal &operator=(const WrongAnimal &assign);
 		void makeSound(void) const;
 		std::string getType(void) const;
