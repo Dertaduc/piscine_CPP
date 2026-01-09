@@ -34,9 +34,6 @@ Animal &Animal::operator=(const Animal &assign)
 	return (*this);
 }
 
-void Animal::makeSound(void) const
-{}
-
 void Animal::getAllIdeas(void) const {}
 
 std::string Animal::getType(void) const

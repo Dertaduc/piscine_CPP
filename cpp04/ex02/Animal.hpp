@@ -19,15 +19,16 @@
 class Animal
 {
 	public :
+		Animal(void);
+		Animal(const Animal &to_copy);
 		virtual ~Animal(void);
 		Animal &operator=(const Animal &assign);
-		virtual void makeSound(void) const;
+		virtual void makeSound(void) const = 0;
 		std::string getType(void) const;
 		virtual void getAllIdeas(void) const;
 	protected :
 		std::string type;
-		Animal(void);
-		Animal(const Animal &to_copy);
+
 };
 
 #endif
