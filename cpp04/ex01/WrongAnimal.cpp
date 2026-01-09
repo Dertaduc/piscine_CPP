@@ -20,6 +20,7 @@ WrongAnimal::WrongAnimal(void)
 WrongAnimal::WrongAnimal(const WrongAnimal &to_copy)
 {
 	type = to_copy.type;
+	std::cout << "Constructor : WrongAnimal (copy constructor)" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal(void)
