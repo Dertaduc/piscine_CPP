@@ -37,12 +37,12 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &to_assign)
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high\n");
+	return ("Grade too high");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low\n");
+	return ("Grade too low");
 }
 Bureaucrat::~Bureaucrat(void) {}
 
@@ -80,6 +80,19 @@ void Bureaucrat::signForm(AForm &form)
 	catch (std::exception &e)
 	{
 		std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what();
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form) const 
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e) 
+	{
+		std::cout << this->getName() << " cannot execute " << form.getName() << " because : " << e.what() << std::endl;
 	}
 }
 

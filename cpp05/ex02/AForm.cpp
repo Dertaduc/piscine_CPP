@@ -28,12 +28,12 @@ AForm::~AForm(void){}
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high\n");
+	return ("Grade too high");
 }
 
 const char *AForm::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low\n");
+	return ("Grade too low");
 }
 
 const std::string AForm::getName(void) const

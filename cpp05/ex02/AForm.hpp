@@ -14,6 +14,7 @@
 # define AForm_HPP
 
 # include "Bureaucrat.hpp"
+# include <exception>
 # include <string>
 
 class Bureaucrat;
@@ -35,12 +36,18 @@ class AForm
 			public :
 				virtual const char *what(void) const throw();
 		};
+		class UnsignedDocumentException : public std::exception
+		{
+			public :
+				virtual const char *what(void) const throw();	
+		};
 		const std::string	getName(void) const;
 		bool				getSignedStatus(void) const;
 		int 				getGradeSign(void) const;
 		int 				getGradeExec(void) const;
 		void				beSigned(const Bureaucrat &employee);
-
+		virtual void		execute(Bureaucrat const &executor) const = 0;
+		virtual void		printAsciiArt(void) const = 0;
 	private :
 		const std::string	_name;
 		bool 				_signed;
