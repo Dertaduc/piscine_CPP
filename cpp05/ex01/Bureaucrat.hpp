@@ -18,6 +18,8 @@
 # include <iostream>
 # include <stdexcept>
 
+class Form;
+
 class Bureaucrat
 {
 	public :
@@ -26,10 +28,11 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &to_copy);
 		~Bureaucrat(void);
 		Bureaucrat &operator=(const Bureaucrat &to_assign);
-		const std::string getName(void) const;
-		int		getGrade(void)const;
-		void	incrementGrade(void);
-		void	decrementGrade(void);
+		const std::string	getName(void) const;
+		int					getGrade(void)const;
+		void				incrementGrade(void);
+		void				decrementGrade(void);
+		void				signForm(Form &form);
 		class GradeTooHighException : public std::exception
 		{
 			public :
@@ -39,7 +42,8 @@ class Bureaucrat
 		{
 			public :
 				virtual const char *what(void) const throw();
-		};	private :
+		};
+	private :
 		const std::string	_name;
 		int 				_grade;
 };

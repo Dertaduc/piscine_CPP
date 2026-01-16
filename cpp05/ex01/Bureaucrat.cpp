@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include <exception>
 
-Bureaucrat::Bureaucrat(void) : _name("default name"), _grade(10)
-{
-	std::cout << "Constructor : Bureaucrat (default constructor)" << std::endl;
-}
+Bureaucrat::Bureaucrat(void) : _name("default name"), _grade(10) {}
 
 Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name), _grade(grade)
 {
@@ -23,13 +22,9 @@ Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name
 		throw Bureaucrat::GradeTooHighException();
 	else if (_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	std::cout << "Constructor : Bureaucrat (standard constructor)" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &to_copy) : _name(to_copy._name), _grade(to_copy._grade)
-{
-	std::cout << "Constructor : Bureaucrat (copy constructor)" << std::endl;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat &to_copy) : _name(to_copy._name), _grade(to_copy._grade){}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &to_assign)
 {
@@ -49,10 +44,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low\n");
 }
-Bureaucrat::~Bureaucrat(void)
-{
-	std::cout << "Destructor : Bureaucrat" << std::endl;
-}
+Bureaucrat::~Bureaucrat(void) {}
 
 const std::string Bureaucrat::getName(void) const
 {
@@ -76,6 +68,19 @@ void Bureaucrat::decrementGrade(void)
 	if (_grade >= 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade += 1;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what();
+	}
 }
 
 std::ostream &operator<<(std::ostream &ofs, Bureaucrat const &to_print)

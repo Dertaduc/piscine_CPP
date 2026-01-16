@@ -39,7 +39,8 @@ class Bureaucrat
 		{
 			public :
 				virtual const char *what(void) const throw();
-		};	private :
+		};
+	private :
 		const std::string	_name;
 		int 				_grade;
 };
