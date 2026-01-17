@@ -24,7 +24,7 @@ class RobotomyRequestForm : public AForm
 		~RobotomyRequestForm(void);
 		virtual void	execute(const Bureaucrat &executor) const;
 		virtual void	printAsciiArt(void) const;
-		
+
 	private :
 		RobotomyRequestForm(void);
 		RobotomyRequestForm(const RobotomyRequestForm &to_copy);

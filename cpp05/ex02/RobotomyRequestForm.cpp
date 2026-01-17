@@ -6,17 +6,14 @@
 /*   By: candre-- <candre--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 18:28:59 by candre--          #+#    #+#             */
-/*   Updated: 2026/01/16 20:35:36 by candre--         ###   ########.fr       */
+/*   Updated: 2026/01/17 15:18:50 by candre--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : 
-	AForm(target,
-		72,
-		45) {}
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45) {}
 
 RobotomyRequestForm::~RobotomyRequestForm(void){}
 
