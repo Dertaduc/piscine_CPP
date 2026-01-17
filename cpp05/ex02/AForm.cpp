@@ -36,6 +36,11 @@ const char *AForm::GradeTooLowException::what() const throw()
 	return ("Grade too low");
 }
 
+const char *AForm::UnsignedDocumentException::what() const throw()
+{
+	return ("Usigned document");
+}
+
 const std::string AForm::getName(void) const
 {
 	return (_name);

@@ -20,11 +20,6 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) :
 
 RobotomyRequestForm::~RobotomyRequestForm(void){}
 
-const char *RobotomyRequestForm::UnsignedDocumentException::what() const throw()
-{
-	return ("Unsigned document");
-}
-
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
     int random;
