@@ -26,7 +26,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
         throw ShrubberyCreationForm::GradeTooLowException();
     else
     {
-        std::ofstream outfile(this->getName().append("_shrubbery").c_str(), std::ios::app);
+        std::ofstream outfile(this->getName().append("_shrubbery").c_str());
         if (!outfile.is_open() || outfile.fail())
             throw ShrubberyCreationForm::OpenFileError();
 

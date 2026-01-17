@@ -11,28 +11,57 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include <exception>
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
-	srand(time(NULL));
-	RobotomyRequestForm a("coucou");
-	Bureaucrat b("test", 30);
-	Bureaucrat c("test2", 90);
+	srand (time(NULL));
+	Bureaucrat Boss("Boss", 1);
+	Bureaucrat Manager("Manager", 45);
+	Bureaucrat UnderServant("UnderServant", 150);
 
-	// try {
-	// 	b.signForm(a);
-	// 	a.execute(b);
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
+	ShrubberyCreationForm tree("forest");
+	RobotomyRequestForm robot("Rob");
+	PresidentialPardonForm prisonner("Boby");
 
-	b.executeForm(a);
-	b.signForm(a);
-	c.executeForm(a);
-	b.executeForm(a);
-	return (0);
+	std::cout << "__________try to exec form without signed__________" << std::endl;
+	Boss.executeForm(tree);
+	Boss.executeForm(robot);
+	Boss.executeForm(prisonner);
+	
+	Manager.executeForm(tree);
+	Manager.executeForm(robot);
+	Manager.executeForm(prisonner);
+
+	UnderServant.executeForm(tree);
+	UnderServant.executeForm(robot);
+	UnderServant.executeForm(prisonner);
+
+	std::cout << "\n__________Try to Sign all forms__________" << std::endl;
+	Boss.signForm(tree);
+	Boss.signForm(robot);
+	Boss.signForm(prisonner);
+
+	Manager.signForm(tree);
+	Manager.signForm(robot);
+	Manager.signForm(prisonner);
+	
+	UnderServant.signForm(tree);
+	UnderServant.signForm(robot);
+	UnderServant.signForm(prisonner);
+	
+	std::cout << "\n___________Try to exec all forms__________" << std::endl;
+	Boss.executeForm(tree);
+	Boss.executeForm(robot);
+	Boss.executeForm(prisonner);
+	
+	Manager.executeForm(tree);
+	Manager.executeForm(robot);
+	Manager.executeForm(prisonner);
+
+	UnderServant.executeForm(tree);
+	UnderServant.executeForm(robot);
+	UnderServant.executeForm(prisonner);	
 }
