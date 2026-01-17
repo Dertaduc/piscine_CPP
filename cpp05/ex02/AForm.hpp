@@ -41,7 +41,7 @@ class AForm
 			public :
 				virtual const char *what(void) const throw();	
 		};
-		const std::string	getName(void) const;
+		std::string	getName(void) const;
 		bool				getSignedStatus(void) const;
 		int 				getGradeSign(void) const;
 		int 				getGradeExec(void) const;
