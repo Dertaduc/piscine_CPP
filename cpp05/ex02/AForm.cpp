@@ -73,7 +73,7 @@ void AForm::beSigned(const Bureaucrat &employee)
 
 std::ostream &operator<<(std::ostream &ofs, AForm const &to_print)
 {
-	ofs << "__________AForm inAFormation__________\n";
+	ofs << "__________AForm information__________\n";
 	ofs << "_name : " << to_print.getName() << std::endl;
 	ofs << "_signed status : " << to_print.getSignedStatus() << std::endl;
 	ofs << "_grade_sign : " << to_print.getGradeSign() << std::endl;

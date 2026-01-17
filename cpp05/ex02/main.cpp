@@ -26,7 +26,12 @@ int main(void)
 	RobotomyRequestForm robot("Rob");
 	PresidentialPardonForm prisonner("Boby");
 
-	std::cout << "__________try to exec form without signed__________" << std::endl;
+	std::cout << "__________FORMS INFORMATIONS__________" << std::endl;
+	std::cout << tree;
+	std::cout << robot;
+	std::cout << prisonner;
+
+	std::cout << "\n__________try to exec form without signed__________" << std::endl;
 	Boss.executeForm(tree);
 	Boss.executeForm(robot);
 	Boss.executeForm(prisonner);
@@ -63,5 +68,5 @@ int main(void)
 
 	UnderServant.executeForm(tree);
 	UnderServant.executeForm(robot);
-	UnderServant.executeForm(prisonner);	
+	UnderServant.executeForm(prisonner);
 }
