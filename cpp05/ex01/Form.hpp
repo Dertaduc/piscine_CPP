@@ -23,7 +23,7 @@ class Form
 {
 	public :
 		Form(void);
-		Form(const std::string name, const int grade_sign, const int grade_exec);
+		Form(const std::string name, const unsigned int grade_sign, const int grade_exec);
 		Form(const Form &to_copy);
 		~Form(void);
 		class GradeTooHighException : public std::exception
@@ -38,14 +38,14 @@ class Form
 		};
 		const std::string	getName(void) const;
 		bool				getSignedStatus(void) const;
-		int 				getGradeSign(void) const;
+		unsigned int		getGradeSign(void) const;
 		int 				getGradeExec(void) const;
 		void				beSigned(const Bureaucrat &employee);
 
 	private :
 		const std::string	_name;
 		bool 				_signed;
-		const int 			_grade_sign;
+		const unsigned int	_grade_sign;
 		const int			_grade_exec;
 		Form &operator=(const Form &to_assign);
 };

@@ -29,7 +29,7 @@ class Bureaucrat
 		~Bureaucrat(void);
 		Bureaucrat &operator=(const Bureaucrat &to_assign);
 		const std::string	getName(void) const;
-		int					getGrade(void)const;
+		unsigned int		getGrade(void)const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
 		void				signForm(Form &form);
@@ -45,7 +45,7 @@ class Bureaucrat
 		};
 	private :
 		const std::string	_name;
-		int 				_grade;
+		unsigned int		_grade;
 };
 
 std::ostream &operator<<(std::ostream &ofs, Bureaucrat const &to_print);

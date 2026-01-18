@@ -14,7 +14,7 @@
 
 Form::Form(void) : _name("Standard form name"), _signed(false), _grade_sign(100), _grade_exec(100) {}
 
-Form::Form(const std::string name, const int grade_sign, const int grade_exec) : _name(name), _signed(false), _grade_sign(grade_sign), _grade_exec(grade_exec)
+Form::Form(const std::string name, const unsigned int grade_sign, const int grade_exec) : _name(name), _signed(false), _grade_sign(grade_sign), _grade_exec(grade_exec)
 {
 	if (_grade_sign < 1 || _grade_exec < 1)
 		throw Form::GradeTooHighException();
@@ -46,7 +46,7 @@ bool Form::getSignedStatus(void) const
 	return (_signed);
 }
 
-int Form::getGradeSign(void) const
+unsigned int Form::getGradeSign(void) const
 {
 	return (_grade_sign);
 }
