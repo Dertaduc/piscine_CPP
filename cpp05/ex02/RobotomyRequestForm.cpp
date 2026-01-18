@@ -33,10 +33,10 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
             case 0 :
                 printAsciiArt();
                 std::cout << getName() << " : has been robotomized. Drilling in progress...\n";
-             break;
-        case 1 :
-            std::cout << getName() << " : robotics failed. Please try again.\n";
-    }
+                break;
+            case 1 :
+                std::cout << getName() << " : robotics failed. Please try again.\n";
+        }
     }
 }
 

@@ -14,7 +14,7 @@
 
 AForm::AForm(void) : _name("Standard AForm name"), _signed(false), _grade_sign(100), _grade_exec(100) {}
 
-AForm::AForm(const std::string name, const int grade_sign, const int grade_exec) : _name(name), _signed(false), _grade_sign(grade_sign), _grade_exec(grade_exec)
+AForm::AForm(const std::string name, const unsigned int grade_sign, const unsigned int grade_exec) : _name(name), _signed(false), _grade_sign(grade_sign), _grade_exec(grade_exec)
 {
 	if (_grade_sign < 1 || _grade_exec < 1)
 		throw AForm::GradeTooHighException();
@@ -51,12 +51,12 @@ bool AForm::getSignedStatus(void) const
 	return (_signed);
 }
 
-int AForm::getGradeSign(void) const
+unsigned int AForm::getGradeSign(void) const
 {
 	return (_grade_sign);
 }
 
-int AForm::getGradeExec(void) const
+unsigned int AForm::getGradeExec(void) const
 {
 	return (_grade_exec);
 }

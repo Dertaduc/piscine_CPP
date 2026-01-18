@@ -17,7 +17,7 @@
 
 int main(void)
 {
-	srand (time(NULL));
+	srand(static_cast<unsigned int>(std::time(NULL)));
 	Bureaucrat Boss("Boss", 1);
 	Bureaucrat Manager("Manager", 45);
 	Bureaucrat UnderServant("UnderServant", 150);
