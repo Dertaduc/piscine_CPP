@@ -14,59 +14,74 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
+#include <new>
 
 int main(void)
 {
 	srand (time(NULL));
 	Bureaucrat Boss("Boss", 1);
-	Bureaucrat Manager("Manager", 45);
-	Bureaucrat UnderServant("UnderServant", 150);
+	Intern nobody;
+	AForm *test = NULL;
 
-	ShrubberyCreationForm tree("forest");
-	RobotomyRequestForm robot("Rob");
-	PresidentialPardonForm prisonner("Boby");
+	std::cout << "\n__________Intern do a Presidential Pardon Form_________" << std::endl;
+	try 
+	{
+		test = nobody.makeForm("PresidentialPardonForm","BobyThePrisonner");
+		if (test != NULL)
+		{
+			Boss.signForm(*test);
+			delete test;
+		}
+	}
+	catch (std::bad_alloc &e)
+	{
+		std::cout << e.what();
+	}
 
-	std::cout << "__________FORMS INFORMATIONS__________" << std::endl;
-	std::cout << tree;
-	std::cout << robot;
-	std::cout << prisonner;
-
-	std::cout << "\n__________try to exec form without signed__________" << std::endl;
-	Boss.executeForm(tree);
-	Boss.executeForm(robot);
-	Boss.executeForm(prisonner);
+	std::cout << "\n__________Intern do a Form Shrubbery Creation Form_________" << std::endl;
+	try 
+	{
+		test = nobody.makeForm("ShrubberyCreationForm","garden");
+		if (test != NULL)
+		{
+			Boss.signForm(*test);
+			delete test;
+		}
+	}
+	catch (std::bad_alloc &e)
+	{
+		std::cout << e.what();
+	}
 	
-	Manager.executeForm(tree);
-	Manager.executeForm(robot);
-	Manager.executeForm(prisonner);
+	std::cout << "\n__________Intern do a Form Robotomy Request Form_________" << std::endl;
+	try 
+	{
+		test = nobody.makeForm("RobotomyRequestForm","Wall-e");
+		if (test != NULL)
+		{
+			Boss.signForm(*test);
+			delete test;
+		}
+	}
+	catch (std::bad_alloc &e)
+	{
+		std::cout << e.what();
+	}
 
-	UnderServant.executeForm(tree);
-	UnderServant.executeForm(robot);
-	UnderServant.executeForm(prisonner);
-
-	std::cout << "\n__________Try to Sign all forms__________" << std::endl;
-	Boss.signForm(tree);
-	Boss.signForm(robot);
-	Boss.signForm(prisonner);
-
-	Manager.signForm(tree);
-	Manager.signForm(robot);
-	Manager.signForm(prisonner);
-	
-	UnderServant.signForm(tree);
-	UnderServant.signForm(robot);
-	UnderServant.signForm(prisonner);
-	
-	std::cout << "\n___________Try to exec all forms__________" << std::endl;
-	Boss.executeForm(tree);
-	Boss.executeForm(robot);
-	Boss.executeForm(prisonner);
-	
-	Manager.executeForm(tree);
-	Manager.executeForm(robot);
-	Manager.executeForm(prisonner);
-
-	UnderServant.executeForm(tree);
-	UnderServant.executeForm(robot);
-	UnderServant.executeForm(prisonner);
+	std::cout << "\n__________Intern try to do a non existent form_________" << std::endl;
+	try 
+	{
+	test = nobody.makeForm("not_exist_form","nothing");
+		if (test != NULL)
+		{
+			Boss.signForm(*test);
+			Boss.executeForm(*test);
+			delete test;
+		}
+	}
+	catch (std::bad_alloc &e)
+	{
+		std::cout << e.what();
+	}
 }

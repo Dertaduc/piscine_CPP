@@ -12,7 +12,7 @@
 
 NAME = bureaucrat
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 OBJ_DIR = build
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:.o=.d)

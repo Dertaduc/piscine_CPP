@@ -25,7 +25,7 @@ class AForm
 		AForm(void);
 		AForm(const std::string name, const int grade_sign, const int grade_exec);
 		AForm(const AForm &to_copy);
-		~AForm(void);
+		virtual ~AForm(void);
 		class GradeTooHighException : public std::exception
 		{
 			public :
