@@ -27,11 +27,8 @@ bool is_number(std::string &input)
 
 	std::strtod(input.c_str(), &last_str);
 
-	if (last_str == input.c_str()) // voir si bonne protection avec funcheck
-	{
-		std::cout << "Error\n";
+	if (last_str == input.c_str())
 		return (false);
-	}
 	if (*last_str == '\0')
 		return (true);
 	if (*last_str == 'f' && last_str[1] =='\0')
@@ -41,7 +38,9 @@ bool is_number(std::string &input)
 
 bool is_char(std::string &input)
 {
-	if (std::isalpha(static_cast<unsigned char>(input[0])) == true && input.length() == 1)
+	if (input.length() != 1)
+		return (false);
+	if (std::isalpha(static_cast<unsigned char>(input[0])))
 		return (true);
 	return (false);
 }
