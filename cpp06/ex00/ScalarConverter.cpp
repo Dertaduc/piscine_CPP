@@ -77,7 +77,7 @@ void convertfloat(double result)
 	else
 	{
 		std::cout << "float : " << static_cast<float>(result);
-		if (static_cast<float>(result) ==  static_cast<int>(result))
+		if (static_cast<float>(result) ==  static_cast<float>(static_cast<int>(result)))
 			std::cout << ".0";
 		std::cout << "f\n";
 	}	
