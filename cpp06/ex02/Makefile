@@ -18,7 +18,7 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:.o=.d)
 
 CPP = c++
-CPP_FLAGS = -Wall -Wextra -Wconversion -Werror -std=c++98 -MMD -MP -g3
+CPP_FLAGS = -Wall -Wextra -Wconversion -Werror -std=c++98 -MMD -MP
 
 all : $(NAME)
 
