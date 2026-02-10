@@ -38,9 +38,11 @@ bool is_number(std::string &input)
 
 bool is_char(std::string &input)
 {
+	unsigned char c;
 	if (input.length() != 1)
 		return (false);
-	if (std::isalpha(static_cast<unsigned char>(input[0])))
+	c = static_cast<unsigned char>(input[0]);
+	if (c >=0 && c <= 127)
 		return (true);
 	return (false);
 }
