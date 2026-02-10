@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
 
 template<typename T> void printTemplate(T const &content)
 {
