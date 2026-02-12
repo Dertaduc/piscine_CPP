@@ -62,14 +62,18 @@ int main(void)
         std::cout << e.what() << std::endl; 
     }
 
-
-
-
-    std::cout << "\n\n\n__________Test for std::string array__________\n";
+    
+    std::cout << "\n\n__________Test for std::string array__________\n";
     try
     {
         Array<std::string> a;
         Array<std::string> b(3);
+
+        std::cout << "_show array content_\n";
+        for (unsigned int i = 0; i <  3; i++)
+        {
+            std::cout << b[i] << std::endl;
+        }
 
         b[0] = "Hello";
         b[1] = "world";
