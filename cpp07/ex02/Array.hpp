@@ -26,11 +26,10 @@ class Array
 
         Array(unsigned int len)
         {
-            _len_array =len;
-            _array = new T[len];
+            _len_array = len;
+            _array = new T[len]();
             std::cout << "Constructor : Array (len constructor)\n";  
         }
-
         Array(const Array &to_copy)
         {
             unsigned int i;
