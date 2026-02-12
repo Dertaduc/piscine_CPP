@@ -18,7 +18,7 @@
 
 int main(void)
 {
-    std::cout << "__________Test for int__________\n";
+    std::cout << "__________Test for int array__________\n";
     try
     {
         Array<int> a;
@@ -27,42 +27,73 @@ int main(void)
         {
             b[i] = rand() % 42;
         }
+
+        std::cout << "_show array content_\n";
         for (int i = 0; i <  3; i++)
         {
             std::cout << b[i] << std::endl;
         }
         Array<int> c(b);
+        std::cout << "All constructions worked\n";
+
         for (int i = 0; i < 3; i++)
         {
-            if (c[i] != b[i])
+            if (c[i] != b[i])// access by operator[]
                 std::cout << "Array c and b are diverging in this index : " << i << std::endl;
             else
                 std::cout << "C and B are equals in this index : " << i << std::endl;
         }
-        // Array<std::string> ;
-        Array<std::string> d(42);
+
+        std::cout << "_____ acces [i] out of array scope_______\n";
+        std::cout << "array size == " << c.size() << std::endl;
+
+        std::cout << "try an access at size() + 1\n";
+        std::cout << c[c.size() + 1] << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl; 
+    }
+
+
+
+
+    std::cout << "\n\n\n__________Test for std::string array__________\n";
+    try
+    {
+        Array<std::string> a;
+        Array<std::string> b(3);
+
+        b[0] = "Hello";
+        b[1] = "world";
+        b[2] = "!";
+
+        std::cout << "_show array content_\n";
+        for (int i = 0; i <  3; i++)
+        {
+            std::cout << b[i] << std::endl;
+        }
+        Array<std::string> c(b);
         std::cout << "All constructions worked\n";
+        for (int i = 0; i < 3; i++)
+        {
+            if (c[i] != b[i])// access by operator[]
+                std::cout << "Array c and b are diverging in this index : " << i << std::endl;
+            else
+                std::cout << "C and B are equals in this index : " << i << std::endl;
+        }
+
+        std::cout << "_____ acces [i] out of array scope_______\n";
+        std::cout << "array size == " << c.size() << std::endl;
+
+        std::cout << "try an access at size() + 1\n";
+        std::cout << c[c.size() + 1] << std::endl;
     }
     catch (std::exception &e)
     {
         std::cout << e.what() << std::endl; 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #define MAX_VAL 750
 // int main(int, char**)

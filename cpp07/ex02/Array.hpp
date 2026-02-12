@@ -74,7 +74,10 @@ class Array
             }
             return (_array[index]);
         }
-        int size(void);
+        int size(void)
+        {
+            return _len_array;
+        };
     private :
         int    _len_array;
         T               *_array;
