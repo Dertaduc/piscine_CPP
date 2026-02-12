@@ -24,7 +24,7 @@ class Array
             std::cout << "Constructor : Array (default constructor)\n";
         };
 
-        Array(int len)
+        Array(unsigned int len)
         {
             _len_array =len;
             _array = new T[len];
@@ -33,7 +33,7 @@ class Array
 
         Array(const Array &to_copy)
         {
-            int i;
+            unsigned int i;
             _len_array = to_copy._len_array;
             _array = new T[_len_array];
             i = 0;
@@ -66,7 +66,7 @@ class Array
             return (*this);
         }
 
-        T &operator[](int index)
+        T &operator[](unsigned int index)
         {
             if (index < 0 || index >= this->_len_array)
             {
@@ -74,12 +74,12 @@ class Array
             }
             return (_array[index]);
         }
-        int size(void)
+        unsigned int size(void)
         {
             return _len_array;
         };
     private :
-        int    _len_array;
+        unsigned int    _len_array;
         T               *_array;
 };
 

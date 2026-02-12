@@ -69,13 +69,13 @@ int main(void)
         b[2] = "!";
 
         std::cout << "_show array content_\n";
-        for (int i = 0; i <  3; i++)
+        for (unsigned int i = 0; i <  3; i++)
         {
             std::cout << b[i] << std::endl;
         }
         Array<std::string> c(b);
         std::cout << "All constructions worked\n";
-        for (int i = 0; i < 3; i++)
+        for (unsigned int i = 0; i < 3; i++)
         {
             if (c[i] != b[i])// access by operator[]
                 std::cout << "Array c and b are diverging in this index : " << i << std::endl;
