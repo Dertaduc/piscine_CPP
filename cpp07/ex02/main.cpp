@@ -51,7 +51,7 @@ int main(void)
                 std::cout << "C and B are equals in this index : " << i << std::endl;
         }
 
-        std::cout << "_____ acces [i] out of array scope_______\n";
+        std::cout << "_____ access [i] out of array scope_______\n";
         std::cout << "array size == " << c.size() << std::endl;
 
         std::cout << "try an access at size() + 1\n";
@@ -90,7 +90,7 @@ int main(void)
                 std::cout << "C and B are equals in this index : " << i << std::endl;
         }
 
-        std::cout << "_____ acces [i] out of array scope_______\n";
+        std::cout << "_____ access [i] out of array scope_______\n";
         std::cout << "array size == " << c.size() << std::endl;
 
         std::cout << "try an access at size() + 1\n";
@@ -101,54 +101,3 @@ int main(void)
         std::cout << e.what() << std::endl; 
     }
 }
-
-#define MAX_VAL 750
-// int main(int, char**)
-// {
-//     Array<int> numbers(MAX_VAL);
-//     int* mirror = new int[MAX_VAL];
-// 	srand(static_cast<unsigned int>(std::time(NULL)));
-//     for (int i = 0; i < MAX_VAL; i++)
-//     {
-//         const int value = rand();
-//         numbers[i] = value;
-//         mirror[i] = value;
-//     }
-//     //SCOPE
-//     {
-//         Array<int> tmp = numbers;
-//         Array<int> test(tmp);
-//     }
-
-//     for (int i = 0; i < MAX_VAL; i++)
-//     {
-//         if (mirror[i] != numbers[i])
-//         {
-//             std::cerr << "didn't save the same value!!" << std::endl;
-//             return 1;
-//         }
-//     }
-//     try
-//     {
-//         numbers[-2] = 0;
-//     }
-//     catch(const std::exception& e)
-//     {
-//         std::cerr << e.what() << '\n';
-//     }
-//     try
-//     {
-//         numbers[MAX_VAL] = 0;
-//     }
-//     catch(const std::exception& e)
-//     {
-//         std::cerr << e.what() << '\n';
-//     }
-
-//     for (int i = 0; i < MAX_VAL; i++)
-//     {
-//         numbers[i] = rand();
-//     }
-//     delete [] mirror;//
-//     return 0;
-// }
