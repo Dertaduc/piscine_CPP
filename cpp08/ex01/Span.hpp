@@ -19,19 +19,19 @@
 
 class Span
 {
-	public : 
+	public :
 		Span(unsigned int n);
+		Span(const Span &to_copy);
+
 		~Span();
 
 		void 				addNumber(int nbr);
 		unsigned int		shortestSpan(void);
 		unsigned int		longestSpan(void);
-		std::vector<int>	getvector(void);
 	private :
 		std::vector<int>	_vector;
 		const unsigned int	_size_max;
-		Span(void);
-		Span(const Span &to_copy);
-		Span &operator=(const Span $to_assign);
+		Span &operator=(const Span &to_assign);
 };
+
 #endif

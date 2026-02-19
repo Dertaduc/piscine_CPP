@@ -11,10 +11,13 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <exception>
+#include <algorithm>
 #include <stdexcept>
+#include <vector>
 
 Span::Span(unsigned int n) : _vector(), _size_max(n) {}
+
+Span::Span(const Span &to_copy) : _vector(to_copy._vector), _size_max(to_copy._size_max) {}
 
 Span::~Span(){}
 
@@ -25,7 +28,35 @@ void Span::addNumber(int nbr)
 	_vector.push_back(nbr);
 }
 
-std::vector<int> Span::getvector(void)
+unsigned int Span::longestSpan(void)
 {
-	return (_vector);
+	std::vector<int>::const_iterator min;
+	std::vector<int>::const_iterator max;
+
+	if (_vector.size() < 2)
+		throw std::out_of_range("Too few integers in the vector to calculate the longest span");
+    min = std::min_element(_vector.begin(), _vector.end());
+    max = std::max_element(_vector.begin(), _vector.end());
+
+    return (static_cast<unsigned int>(*max - *min));
+}
+
+unsigned int Span::shortestSpan(void)
+{
+	if (_vector.size() < 2)
+		throw std::out_of_range("Too few integers in the vector to calculate the shortest span");
+	
+	unsigned int diff;
+	unsigned int tmp_diff;
+	std::vector<int> copy_vector(_vector);
+
+	std::sort(copy_vector.begin(), copy_vector.end());
+	diff = static_cast<unsigned int>(copy_vector[1] - copy_vector[0]);
+	for (unsigned int i = 1; i < copy_vector.size() - 1; i++)
+	{
+		tmp_diff = static_cast<unsigned int>(copy_vector[i + 1] - copy_vector[i]);
+		if (tmp_diff < diff)
+			diff = tmp_diff;
+	}
+	return (diff);
 }
