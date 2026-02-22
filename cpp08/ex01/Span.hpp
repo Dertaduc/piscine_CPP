@@ -28,6 +28,8 @@ class Span
 		void 				addNumber(int nbr);
 		unsigned int		shortestSpan(void);
 		unsigned int		longestSpan(void);
+		void				addMultipleNumber(std::vector<int>::iterator start, std::vector<int>::iterator end);
+		void				showSpanInfo(void) const;
 	private :
 		std::vector<int>	_vector;
 		const unsigned int	_size_max;

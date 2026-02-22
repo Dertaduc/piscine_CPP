@@ -60,3 +60,26 @@ unsigned int Span::shortestSpan(void)
 	}
 	return (diff);
 }
+
+void Span::addMultipleNumber(std::vector<int>::iterator start, std::vector<int>::iterator end)
+{
+	if (_vector.size() + std::distance(start, end) > _size_max)
+		throw std::out_of_range("Not enough space left in vector");
+	_vector.insert(_vector.end(), start, end);
+}
+
+void Span::showSpanInfo(void) const
+{
+	std::cout << "--- SPAN INFORMATIONS---\n";
+	std::cout << "_size_max = " << _size_max << std::endl;
+	std::cout << "vector content :" << std::endl;
+	
+	for (unsigned long i = 0; i < _vector.size(); i++)
+	{
+		if (i < _vector.size() -1)
+			std::cout << _vector[i] << ", ";
+		else
+			std::cout << _vector[i] << std::endl;
+	}
+	std::cout << "------------------------\n";
+}
