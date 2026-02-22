@@ -63,7 +63,12 @@ unsigned int Span::shortestSpan(void)
 
 void Span::addMultipleNumber(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
-	if (_vector.size() + std::distance(start, end) > _size_max)
+	std::vector<int>::difference_type diff = std::distance(start, end);
+
+	if (diff < 0)
+		throw std::runtime_error("Invalid iterator range");
+
+	if (_vector.size() + static_cast<size_t>(diff) > _size_max)
 		throw std::out_of_range("Not enough space left in vector");
 	_vector.insert(_vector.end(), start, end);
 }
