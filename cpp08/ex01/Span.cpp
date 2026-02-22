@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <algorithm>
-#include <stdexcept>
-#include <vector>
 
 Span::Span(unsigned int n) : _vector(), _size_max(n) {}
 
@@ -24,7 +21,7 @@ Span::~Span(){}
 void Span::addNumber(int nbr)
 {
 	if (_vector.size() >= _size_max)
-		throw std::out_of_range("Cannot add number to vector");
+		throw std::out_of_range("No space left on vector to add number");
 	_vector.push_back(nbr);
 }
 

@@ -11,49 +11,104 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <climits>
 #include <exception>
-#include <ostream>
-#include <vector>
-#include <ctime>
-
-
-
-// int main(void)
-// {
-// 	Span a(3);
-// 	srand(static_cast<unsigned int>(std::time(NULL)));
-
-// 	try
-// 	{
-// 		// for (int i = 0; i < 5; i++)
-// 		a.addNumber(INT_MAX);
-// 		a.addNumber(INT_MIN);
-// 		// a.addNumber(-1);
-// 		printSpan(a.getvector());
-// 		unsigned int reslong = a.longestSpan();
-// 		std::cout << "longest span == " << reslong << std::endl;
-// 		std::cout << "\n\n Show sorted copy\n";
-// 		unsigned int resshort = a.shortestSpan();
-// 		std::cout << "shortest span == " << resshort << std::endl;
-// 	}
-// 	catch (std::exception &e)
-// 	{
-// 		std::cout << e.what() << std::endl;
-// 	}
-// 	return (0);
-// }
+#include <climits>
 
 int main(void)
 {
-	Span sp = Span(5);
+	try
+	{
+		std::cout << "_______Test addnumber in row______\n" ;
+		Span sp(5);
+		
+		sp.showSpanInfo();
+		for (int i = 0; i < 5; i++)
+		{
+			sp.addNumber(i);
+		}
+		sp.showSpanInfo();
+		std::cout << "Shortest span = " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span =  " << sp.longestSpan() << std::endl;
+		
+		std::cout << "try to add a number in a full _vector ? : ";
+		sp.addNumber(42);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
 
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	
+	try
+	{
+		std::cout << "\n\n________Test overflow________\n";
+		Span sp(2);
+
+		sp.addNumber(INT_MIN);
+		sp.addNumber(INT_MAX);
+		sp.showSpanInfo();
+		std::cout << "Shortest span = " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span =  " << sp.longestSpan() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	
+	
+	try
+	{
+		std::cout << "\n\n________Test add multiple number________\n";
+		Span sp(5);
+		int arr[] = {1,2,3, 10, 43};
+		std::vector<int> insert_v(arr, arr + 5);
+
+		sp.addMultipleNumber(insert_v.begin(), insert_v.end());
+		sp.showSpanInfo();
+		std::cout << "Shortest span = " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span =  " << sp.longestSpan() << std::endl;
+		std::cout << "try to add multiple number in a full vector  ? : ";
+		sp.addMultipleNumber(insert_v.begin(),insert_v.begin() + 1);
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	
+	try
+	{
+		std::cout << "\n\n________Test add multiple number : with invalid iterators________\n";
+		Span sp(5);
+		int arr[] = {1,2,3, 10, 43};
+		std::vector<int> insert_v(arr, arr + 5);
+
+		sp.addMultipleNumber(insert_v.begin() + 4, insert_v.begin());;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	// try
+	// {
+	// 	int arr[] = {1,2,3, 10, 43};
+	// 	std::vector<int> insert_v(arr, arr + 5);
+	// 	Span sp = Span(7);
+		
+	// 	sp.addNumber(6);
+	// 	sp.addNumber(3);
+	// 	sp.addMultipleNumber(insert_v.begin(), insert_v.end());
+	// 	// sp.addNumber(17);
+	// 	// sp.addNumber(9);
+	// 	// sp.addNumber(11);
+	// 	sp.showSpanInfo();
+	// 	std::cout << "Shortest span = " << sp.shortestSpan() << std::endl;
+	// 	std::cout << "Longest span =  " << sp.longestSpan() << std::endl;
+	// }
+	// catch(std::exception &e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
 }
