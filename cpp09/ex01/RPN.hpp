@@ -14,6 +14,7 @@
 # define RPN_HPP
 
 #include <stack>
+#include <list>
 #include <sstream>
 
 class RPN
@@ -27,8 +28,8 @@ class RPN
 		
 	private :
 		void	read_input(const std::string &str);
-		std::stack<int, std::vector<int> > _calculator;
-	
+		std::stack<int, std::list<int>> _calculator;
+		RPN(void);
 		RPN &operator=(const RPN &to_assign);
 		RPN(const RPN& to_copy);
 	
