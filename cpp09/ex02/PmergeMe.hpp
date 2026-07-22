@@ -18,14 +18,14 @@
 # include <set>
 # include <string>
 # include <sstream>
-#include <sys/time.h>
+# include "iostream"
+# include <sys/time.h>
 
 # define GREEN	"\033[32m"
 # define RED	"\033[31m"
 # define YELLOW	"\033[33m"
 # define GREY 	"\033[30m"
 # define RESET	"\033[0m" 
-
 
 class PmergeMe
 {
@@ -37,7 +37,6 @@ class PmergeMe
 		size_t sort_deque(void);
 		size_t FJ_calculator(void);
 		std::vector<int> get_vector(void) const;
-
 
 	private :
 		void parse_input(const std::string& arg);
@@ -76,7 +75,6 @@ class PmergeMe
 		
 		template<typename Container>
 		void ford_johnson_algo(Container& sequence);
-
 };
 
 std::ostream &operator<<(std::ostream &ofs, std::vector<int> const &vector);

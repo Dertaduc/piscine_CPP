@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include "iostream"
 
 void printPairs(const std::vector< std::pair<int, int> >& pair_members)
 {
@@ -26,6 +25,7 @@ PmergeMe::PmergeMe(char **argv)
 	for (int i = 0; argv[i] != NULL; i++)
 		parse_input(argv[i]);
 }
+PmergeMe::~PmergeMe(void){}
 
 size_t PmergeMe::FJ_calculator()
 {
@@ -41,9 +41,6 @@ size_t PmergeMe::FJ_calculator()
 	}
 	return (sum);
 }
-
-PmergeMe::~PmergeMe(void){}
-
 
 void PmergeMe::parse_input(const std::string& arg)
 {
@@ -64,8 +61,6 @@ void PmergeMe::parse_input(const std::string& arg)
 	_deque.push_back(value);
 }
 
-
-
 template<typename Container> void PmergeMe::create_pairs_members(const Container& sequence, std::vector< std::pair<int, int> >& pair_members, size_t n_pairs)
 {
 	for (size_t pair_index = 0; pair_index < n_pairs; ++pair_index)
@@ -78,7 +73,6 @@ template<typename Container> void PmergeMe::create_pairs_members(const Container
 	}
 }
 
-
 template<typename Container>
 void PmergeMe::build_main_chain(const std::vector< std::pair<int, int> >& pair_members, Container& sortedChain)
 {
@@ -89,21 +83,16 @@ void PmergeMe::build_main_chain(const std::vector< std::pair<int, int> >& pair_m
         sortedChain.push_back(pair_members[pairIndex].second);
 }
 
-
 template<typename Container> void PmergeMe::sort_pair_by_max_and_reorder(std::vector< std::pair<int, int> >& pair_members)
 {
 	if (pair_members.size() <= 1)
 		return;
-
 	Container bigger_elems;
 	for (size_t pair_index = 0; pair_index < pair_members.size(); ++pair_index)
 		bigger_elems.push_back(pair_members[pair_index].second);
-	
 	ford_johnson_algo(bigger_elems);
-	
 	std::vector< std::pair<int, int> > ordered_pairs(pair_members.size());
 	std::vector<bool> pair_already_used(pair_members.size(), false);
-
 	for (size_t bigger_index = 0; bigger_index < bigger_elems.size(); ++bigger_index)
 	{
 		for (size_t pair_index = 0; pair_index < pair_members.size(); ++pair_index)
@@ -125,7 +114,7 @@ std::vector<size_t> PmergeMe::init_jacobsthal(size_t size) const
 	size_t				penultimate = 1;
 	size_t				last = 1;
 	size_t				current;
-	
+
 	for (size_t index = 0; index < size; ++index)
 	{
 		if (index < 2)
@@ -185,10 +174,9 @@ template<typename Container> void PmergeMe::insert_pending_elements(Container& m
 		total_slots = pair_members.size() + 1;
 	else
 		total_slots = pair_members.size();
-
 	if (total_slots <= 1)
 		return;
-	
+
 	std::vector<size_t>	jacobsthal_suite = init_jacobsthal(total_slots + 2);
 	std::vector<bool>	already_inserted(total_slots, false);
 	already_inserted[0] = true;
@@ -262,7 +250,6 @@ template<typename Container> void PmergeMe::ford_johnson_algo(Container& sequenc
 	default:
 		break;
 	}
-
 	size_t n_pairs;
 	int impair_number;
 	bool is_impair_sequence = false;
@@ -272,14 +259,11 @@ template<typename Container> void PmergeMe::ford_johnson_algo(Container& sequenc
 		is_impair_sequence = true;
 		impair_number = sequence.back();
 	}
-
 	n_pairs = sequence.size() / 2;
-
 	std::vector < std::pair<int, int> > pair_members;
 	pair_members.reserve(n_pairs);
 	create_pairs_members(sequence, pair_members, n_pairs);
 	sort_pair_by_max_and_reorder<Container>(pair_members);
-
 	Container main_chain;
 	build_main_chain(pair_members, main_chain);
 	insert_pending_elements(main_chain, pair_members, is_impair_sequence, is_impair_sequence ? impair_number : 0);
@@ -300,7 +284,6 @@ size_t	get_time_micro(void)
 	time = (tv.tv_sec * 1000000) + tv.tv_usec;
 	return (time);
 }
-
 
 size_t PmergeMe::sort_vector(void)
 {
@@ -337,7 +320,6 @@ size_t PmergeMe::sort_deque(void)
 		std::cout << RED << "Nb comparison : " << _comparisons << " : NOT OK" << RESET << std::endl;
 	return (end_time - start_time);
 }
-
 
 std::ostream &operator<<(std::ostream &ofs, std::vector<int> const &vector)
 {

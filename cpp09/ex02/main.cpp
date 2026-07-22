@@ -20,12 +20,10 @@ int main(int argc, char **argv)
 		std::cout << "Error" << std::endl;
 		return (0);
 	}
-
 	try
 	{
 		PmergeMe instance(&argv[1]);
 		std::cout << YELLOW << "Max Ford Johnson comparison: " << instance.FJ_calculator() << RESET << std::endl;
-
 		std::cout << GREY << "Before sorting: " << instance.get_vector() << RESET << std::endl;
 
 		size_t time_vector = instance.sort_vector();
@@ -43,7 +41,6 @@ int main(int argc, char **argv)
 			double ratio = static_cast<double>(time_vector - time_deque) / time_vector * 100.0;
 			std::cout << "std::deque is faster than std::vector by " << ratio << "%" << std::endl;
 		}
-		
 	}
 	catch (std::exception &e)
 	{
