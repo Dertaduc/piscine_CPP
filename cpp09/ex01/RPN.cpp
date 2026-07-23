@@ -55,17 +55,25 @@ void RPN::process_operation(char opp)
 	switch (opp)
 	{
 		case '*':
+			if (b != 0 && (a > INT_MAX / b || a < INT_MIN / b))
+				throw (std::runtime_error("Error: integer overflow"));
 			result = a * b;
 			break;
 		case '+':
+			if ((b > 0 && a > INT_MAX - b) || (b < 0 && a < INT_MIN - b))
+				throw (std::runtime_error("Error: integer overflow"));
 			result = a + b;
 			break;
 		case '-':
+			if ((a > 0 && b < INT_MIN + a) || (a < 0 && b > INT_MAX + a))
+				throw (std::runtime_error("Error: integer overflow"));
 			result = b - a;
 			break;
 		case '/':
 			if (a == 0)
-				throw (std::runtime_error("Error"));
+				throw (std::runtime_error("Error: division by zero"));
+			if (b == INT_MIN && a == -1)
+				throw (std::runtime_error("Error: integer overflow"));
 			result = b / a;
 			break;
 		default:
