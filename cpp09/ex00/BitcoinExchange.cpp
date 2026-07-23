@@ -70,13 +70,18 @@ bool BitcoinExchange::check_valid_date(const std::string& date) const
 		return (false);
 	if (sep1 != '-' || sep2 != '-')
 		return (false);
-	if (year < 2000)
-		return (false);
 	if (month < 1 || month > 12)
 		return (false);
-	if (day < 1 || day > 31)
+	if (day < 1)
 		return (false);
 	if (ss >> trailing)
+		return (false);
+
+	int days_in_month[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	bool is_bissextile = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+	if (is_bissextile)
+		days_in_month[1] = 29;
+	if (day > days_in_month[month - 1])
 		return (false);
 	return (true);
 	
