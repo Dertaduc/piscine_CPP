@@ -20,6 +20,8 @@
 # include <sstream>
 # include "iostream"
 # include <sys/time.h>
+# include <cmath>
+# include <climits>
 
 # define GREEN	"\033[32m"
 # define RED	"\033[31m"

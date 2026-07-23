@@ -170,9 +170,9 @@ std::string BitcoinExchange::select_date(const std::string& target_date) const
 	std::map<std::string, float>::const_iterator it = _blockchain.lower_bound(target_date);
 
 	if (it != _blockchain.end() && it->first == target_date)
-		return (it->first);       // date exacte trouvée
+		return (it->first);
 	if (it == _blockchain.begin())
-		return ("");              // target_date est avant toutes les dates du DB
-	--it;                         // on recule vers la date inférieure la plus proche
+		return ("");
+	--it;
 	return (it->first);
 }

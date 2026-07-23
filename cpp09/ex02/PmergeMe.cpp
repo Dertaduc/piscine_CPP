@@ -51,7 +51,7 @@ void PmergeMe::parse_input(const std::string& arg)
 		throw (std::runtime_error("Error"));
 	errno = 0;
 	tmp_ulong = strtoul(arg.c_str(), &end_str, 10);
-	if (errno == ERANGE || *end_str != '\0' || tmp_ulong > INT_MAX || tmp_ulong < 0)
+	if (errno == ERANGE || *end_str != '\0' || tmp_ulong > INT_MAX)
 		throw (std::runtime_error("Error"));
 
 	int value = static_cast<int>(tmp_ulong);
